@@ -1,4 +1,6 @@
-## Prepare your Setup
+# First Steps with Kafka
+
+## Prepare your Setup
 
 In order to properly work the environment variable *KAFKA_ADVERTISED_HOST_NAME* in the file *docker-compose.yml* should match the ip address of your computer. 
 On a Mac/Linux box you may use the following shell command to get your ip address
@@ -19,7 +21,7 @@ for the example case above update the *KAFKA_ADVERTISED_HOST_NAME* accordingly:
 ...
 ```
 
-## Start Kafka (and Zookeeper)
+## Start Kafka (and Zookeeper)
 
 Inside of your directory *kafka-docker* start kafka with the following command
 ```
@@ -49,7 +51,7 @@ $ ./start-kafka-shell.sh
 this starts docker container with kafka installed.
 kafka shell commands are then located inside directory */opt/kafka/bin/*
 
-### Create Topic *dummy*
+### Create Topic *dummy*
 ```
 bash-4.4# /opt/kafka/bin/kafka-topics.sh --zookeeper 192.168.0.105:2181 --create --topic dummy --partitions 3 --replication-factor 2
 Error while executing topic command : Replication factor: 2 larger than available brokers: 1.
@@ -60,13 +62,13 @@ bash-4.4# /opt/kafka/bin/kafka-topics.sh --zookeeper 192.168.0.105:2181 --create
 Created topic "dummy".
 ```
 
-### Show List of Topics
+### Show List of Topics
 ```
 bash-4.4# /opt/kafka/bin/kafka-topics.sh --zookeeper 192.168.0.105:2181 --list
 dummy
 ```
 
-### Delete Topic *dummy*
+### Delete Topic *dummy*
 ```
 bash-4.4# /opt/kafka/bin/kafka-topics.sh --zookeeper 192.168.0.105:2181 --delete --topic dummy
 Topic dummy is marked for deletion.
@@ -82,7 +84,7 @@ bash-4.4# exit
 exit
 ```
 
-## Stop and remove Kafka (and Zookeeper)
+## Stop and remove Kafka (and Zookeeper)
 
 ```
 docker-compose stop
